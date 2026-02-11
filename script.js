@@ -12,12 +12,16 @@ const finalText = document.getElementById("final-text");
 
 // Click Envelope
 envelope.addEventListener("click", () => {
+
     envelope.style.display = "none";
     letter.style.display = "flex";
 
-    // 🔥 Inicia la música al hacer click
+    // 🔥 Reproducir música después de interacción real
+    music.volume = 0.7;
+    music.currentTime = 0;
+
     music.play().catch(error => {
-        console.log("Autoplay bloqueado:", error);
+        console.log("El navegador bloqueó el audio:", error);
     });
 
     setTimeout(() => {
@@ -25,7 +29,7 @@ envelope.addEventListener("click", () => {
     }, 50);
 });
 
-// Logic to move the NO btn
+// Move NO button
 noBtn.addEventListener("mouseover", () => {
     const distance = 200;
     const angle = Math.random() * Math.PI * 2;
@@ -37,7 +41,7 @@ noBtn.addEventListener("mouseover", () => {
     noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
 });
 
-// YES is clicked
+// YES clicked
 yesBtn.addEventListener("click", () => {
     title.textContent = "YEEEEEEEEEEEEEEE!";
     catImg.src = "cat_dance.gif";
